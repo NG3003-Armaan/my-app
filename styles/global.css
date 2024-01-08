@@ -1,0 +1,149 @@
+:root {
+  --primary: #379b47;
+  --very-light-gray: #fbfbfb;
+  --red: #e42727;
+  --dark-green: #167208;
+  --dark-gray: #7f7f7f;
+  --cp-yellow: #fdd26e;
+  --cp-green: #34bf4a;
+  --cp-teal: #00b398;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+.DialogOverlay {
+  background-color: var(--black-a9);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 550px;
+  max-height: 85vh;
+  padding: 25px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent:focus {
+  outline: none;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.sidebar-content {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  animation: sliceIn 250ms;
+  z-index: 10;
+}
+
+.modal-overlay {
+  background-color: hsl(0deg 0% 0% / 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 25px 15px;
+  width: 400px;
+}
+
+@keyframes sliceIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.loader:not([hidden]) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader::after {
+  content: "";
+  width: inherit;
+  height: inherit;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #379b47;
+  border-radius: 100%;
+  will-change: transform;
+  animation: animate 1s infinite linear;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+select {
+  border-right: 8px solid transparent;
+}
+
+.ng-stickyTable .rt-ScrollAreaViewport {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.ng-stickyTable thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.ng-stickyTable .rt-TableRootTable {
+  overflow: auto !important;
+}

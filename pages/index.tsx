@@ -1,17 +1,22 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import axios from 'axios'
+import { useState } from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home(props: any) {
 
+  const [counter, setCounter] = useState(0);
+
   console.log(props);
   
   return (
     <div>
       fjsdaif
+      {counter}
+      <button onClick={()=>{setCounter(counter+1)}}>+</button>
     </div>
   )
 }
